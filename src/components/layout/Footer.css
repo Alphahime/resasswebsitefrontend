@@ -1,0 +1,560 @@
+/* ============================================
+   FOOTER - RESASS
+   Design premium + watermark géant
+   ============================================ */
+
+.footer {
+  position: relative;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  padding: 6rem 2rem 0;
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Grille technique en fond */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at top,
+    black 20%,
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Halos lumineux */
+.footer-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.footer-glow-left {
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.15), transparent 70%);
+}
+
+.footer-glow-right {
+  width: 450px;
+  height: 450px;
+  top: -50px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.1), transparent 70%);
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   GRILLE DES COLONNES
+   ============================================ */
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 3.5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Colonne 1 : Branding ---------- */
+
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c8102e 0%, #7a0c1e 100%);
+  color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(200, 16, 46, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.15),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.footer-logo-text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-brand-name {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.15rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-brand-tag {
+  font-size: 0.78rem;
+  color: #b0b0b0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.footer-brand-description {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #a8a8a8;
+  margin: 0 0 1.5rem;
+  max-width: 340px;
+}
+
+.footer-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ff4a5e;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 16, 46, 0.12),
+    rgba(200, 16, 46, 0.04)
+  );
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.footer-verified svg {
+  font-size: 0.95rem;
+  color: #e30613;
+}
+
+/* ---------- Titres de colonnes ---------- */
+
+.footer-col-title {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin: 0 0 1.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.footer-col-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2.5px;
+  background: linear-gradient(90deg, #c8102e, #e30613);
+  border-radius: 2px;
+}
+
+/* ---------- Listes de liens ---------- */
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #c8102e;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.footer-link:hover .footer-link-arrow {
+  transform: translateX(3px);
+  color: #e30613;
+}
+
+/* ---------- Contact ---------- */
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+.footer-contact li a {
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact li a:hover {
+  color: #e30613;
+}
+
+.footer-contact-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(200, 16, 46, 0.1);
+  color: #e30613;
+  border: 1px solid rgba(200, 16, 46, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.footer-contact li:hover .footer-contact-icon {
+  background-color: #c8102e;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ---------- Réseaux sociaux ---------- */
+
+.footer-socials-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-socials-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #808080;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #b0b0b0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-social::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #c8102e 0%, #7a0c1e 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.footer-social svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.footer-social:hover {
+  border-color: transparent;
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(200, 16, 46, 0.4);
+}
+
+.footer-social:hover::before {
+  opacity: 1;
+}
+
+.footer-social:hover svg {
+  transform: scale(1.15);
+}
+
+/* ============================================
+   BARRE INFÉRIEURE
+   ============================================ */
+
+.footer-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: 0.88rem;
+  color: #808080;
+  margin: 0;
+}
+
+.footer-copyright strong {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-legal li a {
+  font-size: 0.85rem;
+  color: #808080;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.footer-legal li a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #e30613;
+  transition: width 0.3s ease;
+}
+
+.footer-legal li a:hover {
+  color: #ffffff;
+}
+
+.footer-legal li a:hover::after {
+  width: 100%;
+}
+
+/* Bouton remonter */
+.footer-scroll-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: rgba(200, 16, 46, 0.1);
+  color: #e30613;
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.footer-scroll-top:hover {
+  background: linear-gradient(135deg, #c8102e 0%, #e30613 100%);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(200, 16, 46, 0.45);
+}
+
+/* ============================================
+   WATERMARK GÉANT "RESASS" FONDU
+   ============================================ */
+
+.footer-watermark {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0;
+  text-align: center;
+  font-size: clamp(6rem, 22vw, 22rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(200, 16, 46, 0.14) 0%,
+    rgba(200, 16, 46, 0.05) 40%,
+    transparent 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  pointer-events: none;
+  margin-bottom: -3rem;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: watermarkGlow 8s ease-in-out infinite;
+}
+
+@keyframes watermarkGlow {
+  0%,
+  100% {
+    background: linear-gradient(
+      180deg,
+      rgba(200, 16, 46, 0.14) 0%,
+      rgba(200, 16, 46, 0.05) 40%,
+      transparent 90%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  50% {
+    background: linear-gradient(
+      180deg,
+      rgba(200, 16, 46, 0.2) 0%,
+      rgba(200, 16, 46, 0.08) 40%,
+      transparent 90%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-col-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand-description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 4rem 1.25rem 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-scroll-top {
+    align-self: flex-end;
+  }
+
+  .footer-watermark {
+    font-size: clamp(4rem, 24vw, 8rem);
+    margin-bottom: -1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer-brand-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

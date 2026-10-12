@@ -1,0 +1,726 @@
+/* ============================================
+   ABOUT - Section "À propos" RESASS
+   Design premium — cartes flottantes, glow,
+   micro-interactions
+   ============================================ */
+
+.about {
+  position: relative;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 8rem 2rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Fond : grille technique subtile */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 30%,
+    transparent 75%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 30%,
+    transparent 75%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Halos lumineux haut + bas */
+.about::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 90% 10%,
+      rgba(200, 16, 46, 0.15),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 5% 95%,
+      rgba(200, 16, 46, 0.08),
+      transparent 50%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   COLONNE GAUCHE
+   ============================================ */
+
+/* ---------- Badge ---------- */
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ff4a5e;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 16, 46, 0.15),
+    rgba(200, 16, 46, 0.05)
+  );
+  border: 1px solid rgba(200, 16, 46, 0.35);
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(200, 16, 46, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+}
+
+.about-badge-icon {
+  font-size: 1rem;
+  color: #e30613;
+}
+
+/* ---------- Titre ---------- */
+.about-title {
+  font-size: clamp(1.85rem, 3.6vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 2rem;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  position: relative;
+}
+
+.about-title .highlight {
+  color: #e30613;
+  position: relative;
+  display: inline-block;
+  font-weight: 900;
+}
+
+.highlight-underline {
+  position: absolute;
+  left: 0;
+  bottom: 0.08em;
+  width: 100%;
+  height: 0.22em;
+  background: linear-gradient(
+    90deg,
+    #e30613 0%,
+    #c8102e 40%,
+    transparent 100%
+  );
+  border-radius: 4px;
+  opacity: 0.5;
+  z-index: -1;
+  transform: skewX(-8deg);
+}
+
+/* ---------- Description ---------- */
+.about-description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #c9c9c9;
+  margin-bottom: 1.35rem;
+  max-width: 580px;
+}
+
+.about-description strong {
+  color: #ffffff;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.about-description strong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200, 16, 46, 0.6), transparent);
+}
+
+/* ============================================
+   VALEURS — cartes premium
+   ============================================ */
+
+.about-values {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Ligne rouge qui apparaît à gauche au hover */
+.about-value-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, #e30613, #7a0c1e);
+  transition: height 0.4s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Glow qui apparaît à droite au hover */
+.about-value-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(200, 16, 46, 0.25),
+    transparent 70%
+  );
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.about-value-item:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(200, 16, 46, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border-color: rgba(200, 16, 46, 0.3);
+  transform: translateX(8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.about-value-item:hover::before {
+  height: 100%;
+}
+
+.about-value-item:hover::after {
+  opacity: 1;
+}
+
+.about-value-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c8102e 0%, #7a0c1e 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 16px rgba(200, 16, 46, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.about-value-item:hover .about-value-icon {
+  transform: rotate(-6deg) scale(1.08);
+  box-shadow: 0 10px 24px rgba(200, 16, 46, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.about-value-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-value-content h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.about-value-content p {
+  font-size: 0.92rem;
+  color: #a8a8a8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ============================================
+   CTA "En savoir plus"
+   ============================================ */
+
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  padding: 1rem 1.9rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #c8102e 0%, #e30613 100%);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(200, 16, 46, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Shine effect */
+.about-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.about-cta:hover::before {
+  left: 100%;
+}
+
+.about-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(200, 16, 46, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.about-cta-text {
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta-icon {
+  font-size: 0.95rem;
+  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta:hover .about-cta-icon {
+  transform: translateX(6px);
+}
+
+/* ============================================
+   COLONNE DROITE — Cartes flottantes
+   ============================================ */
+
+.about-visual {
+  position: relative;
+  min-height: 520px;
+  perspective: 1200px;
+}
+
+.about-card {
+  position: absolute;
+  background: linear-gradient(
+    135deg,
+    rgba(36, 36, 36, 0.95) 0%,
+    rgba(26, 26, 26, 0.95) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.25rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+/* Ligne rouge en haut de carte */
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #c8102e, #e30613, transparent);
+  opacity: 0.8;
+}
+
+/* Glow au hover */
+.about-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(200, 16, 46, 0.2),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.about-card:hover::after {
+  opacity: 1;
+}
+
+.about-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(200, 16, 46, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(200, 16, 46, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.about-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c8102e 0%, #7a0c1e 100%);
+  color: #ffffff;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  position: relative;
+  box-shadow: 0 10px 24px rgba(200, 16, 46, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
+}
+
+.about-card:hover .about-card-icon {
+  transform: rotate(-8deg) scale(1.1);
+  box-shadow: 0 14px 32px rgba(200, 16, 46, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.about-card-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #b0b0b0;
+  padding: 0.35rem 0.85rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+}
+
+.about-card:hover .about-card-tag {
+  color: #ff4a5e;
+  border-color: rgba(200, 16, 46, 0.4);
+  background-color: rgba(200, 16, 46, 0.08);
+}
+
+.about-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #b0b0b0;
+  margin: 0 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card-footer {
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  z-index: 1;
+}
+
+.about-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #e30613;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(200, 16, 46, 0.1);
+  border: 1px solid rgba(200, 16, 46, 0.25);
+  border-radius: 50px;
+}
+
+.about-card-badge svg {
+  font-size: 0.7rem;
+}
+
+/* ---------- Carte principale ---------- */
+.about-card-main {
+  top: 0;
+  left: 0;
+  width: 80%;
+  z-index: 3;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-0.5deg);
+  }
+}
+
+.about-card-main:hover {
+  animation-play-state: paused;
+}
+
+/* ---------- Carte secondaire ---------- */
+.about-card-secondary {
+  bottom: 0;
+  right: 0;
+  width: 74%;
+  z-index: 4;
+  background: linear-gradient(
+    135deg,
+    rgba(43, 43, 43, 0.95) 0%,
+    rgba(26, 26, 26, 0.95) 100%
+  );
+  animation: floatCard 7s ease-in-out infinite 0.5s;
+}
+
+.about-card-secondary:hover {
+  animation-play-state: paused;
+}
+
+.about-card-secondary::before {
+  background: linear-gradient(90deg, #e30613, #c8102e, transparent);
+}
+
+/* ============================================
+   DÉCORS
+   ============================================ */
+
+/* Carré rotatif */
+.about-decoration {
+  position: absolute;
+  top: 42%;
+  left: 38%;
+  width: 240px;
+  height: 240px;
+  background: linear-gradient(135deg, #c8102e 0%, #7a0c1e 100%);
+  border-radius: 32px;
+  opacity: 0.1;
+  z-index: 1;
+  transform: rotate(15deg);
+  animation: rotateSlow 25s linear infinite;
+  filter: blur(2px);
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(15deg) scale(1);
+  }
+  50% {
+    transform: rotate(195deg) scale(1.05);
+  }
+  to {
+    transform: rotate(375deg) scale(1);
+  }
+}
+
+/* Points décoratifs */
+.about-decoration-dots {
+  position: absolute;
+  top: 15%;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(
+    circle,
+    rgba(200, 16, 46, 0.6) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 16px 16px;
+  z-index: 1;
+  opacity: 0.5;
+  animation: fadeDots 4s ease-in-out infinite;
+}
+
+@keyframes fadeDots {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 992px) {
+  .about {
+    padding: 6rem 2rem;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .about-visual {
+    min-height: 480px;
+  }
+
+  .about-card-main {
+    width: 74%;
+  }
+
+  .about-card-secondary {
+    width: 70%;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 4.5rem 1.25rem;
+  }
+
+  .about-title {
+    font-size: 1.75rem;
+  }
+
+  .about-visual {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .about-card {
+    position: relative;
+    width: 100%;
+    padding: 1.75rem;
+    animation: none;
+  }
+
+  .about-card-main,
+  .about-card-secondary {
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+  }
+
+  .about-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .about-decoration,
+  .about-decoration-dots {
+    display: none;
+  }
+
+  .about-value-item {
+    padding: 1rem;
+  }
+
+  .about-value-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .about-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
